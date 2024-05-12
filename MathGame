@@ -1,0 +1,250 @@
+import random
+random.random()
+
+o1 = ["+","-","*","/"]
+o2 = random.choice(o1)
+nums = (1,2,3,4,5,6,7,8,9)
+n = random.choice(nums)
+n2 = random.choice(nums)
+rn = random.randint(10,20)
+rn2 = random.randint(10,20)
+score = 0
+correct = 0
+wrong = 0
+goodw = ["Very Good!", "Nice work!", "Keep up the good work!"]
+badw = ["No, Please try again", "Wrong. Try Once more.", "No. Keep trying."]
+d = int(input("Enter Difficulty: "))
+opp = print("1 = addition ", "\n"
+            "2 = subtraction ","\n"
+            "3 = multiplication ","\n"
+            "4 = Division ","\n"
+            "5 = mixed operations ", )
+opp2 = int(input("Enter the operation(1 to 5): "))
+
+def addition(n,n2, goodw, badw,d,rn,rn2,opp,opp2, o1,o2, score, correct, wrong):
+    while True:
+        if d == 1:
+            print(opp)
+            print(opp2)
+            if opp2 == 1: #Addition
+                print("How much is ", n, "plus", n2)
+                a = int(input("Enter: (press 0 to quit)"))
+                if a != n + n2:
+                    bw = random.choice(badw)
+                    print(bw)
+                    wrong = wrong + 1
+                elif a == n + n2:
+                    score = score + 1
+                    correct = correct + 1
+                    gw = random.choice(goodw)
+                    print(gw)
+
+                    n = random.choice(nums)
+                    n2 = random.choice(nums)
+                    addition(n,n2, goodw, badw,d,rn,rn2,opp,opp2,o1,o2,score, correct, wrong)
+                elif a == 0:
+                    print("Thanks for playing!")
+                    print("Score: ", score)
+                    print("Correct answers: ", correct)
+                    print("Wrong answers given: ", wrong)
+                    break
+            if opp2 == 2: #Subtraction
+                print("How much is ", n, "minus", n2)
+                a = int(input("Enter: (press 0 to quit)"))
+                if a != n - n2:
+                    wrong = wrong + 1
+                    bw = random.choice(badw)
+                    print(bw)
+                    
+                elif a == n - n2:
+                    score = score + 1
+                    correct = correct + 1
+                    gw = random.choice(goodw)
+                    print(gw)
+                
+                    n = random.choice(nums)
+                    n2 = random.choice(nums)
+                    print("How much is ", n, "minus", n2)
+                    a = int(input("Enter: "))
+                elif a == 0:
+                    print("Thanks for playing!")
+                    print("Score: ", score)
+                    print("Correct answers: ", correct)
+                    print("Wrong answers given: ", wrong)
+                    break
+            if opp2 == 3: #Multiplication
+                print("How much is ", n, "times", n2)
+                a = int(input("Enter: (press 0 to quit)"))
+                if a != n * n2:
+                    wrong = wrong + 1
+                    bw = random.choice(badw)
+                    print(bw)
+                    
+                elif a == n * n2:
+                    correct = correct + 1
+                    score = score + 1
+                    gw = random.choice(goodw)
+                    print(gw)
+                    
+                    n = random.choice(nums)
+                    n2 = random.choice(nums)
+                    print("How much is ", n, "times", n2)
+                    a = int(input("Enter: "))
+                elif a == 0:
+                    print("Thanks for playing!")
+                    print("Score: ", score)
+                    print("Correct answers: ", correct)
+                    print("Wrong answers given: ", wrong)
+                    break
+            if opp2 == 4: #Division
+                print("How much is ", n, "divided by", n2)
+                a = int(input("Enter: (press 0 to quit)"))
+                if a != n / n2:
+                    wrong = wrong + 1
+                    bw = random.choice(badw)
+                    print(bw)
+                    
+                elif a == n / n2:
+                    score = score + 1
+                    correct = correct + 1
+                    gw = random.choice(goodw)
+                    print(gw)
+          
+                    n = random.choice(nums)
+                    n2 = random.choice(nums)
+                    print("How much is ", n, "divided by", n2)
+                    a = int(input("Enter: "))
+                elif a == 0:
+                    print("Thanks for playing!")
+                    print("Score: ", score)
+                    print("Correct answers: ", correct)
+                    print("Wrong answers given: ", wrong)
+                    break
+            if opp2 == 5: #Mixed
+                print("What is " + n + (o2) + n2, "?")
+                a = int(input("Enter: (press 0 to quit)"))
+                if a ==(n,int(o2),n2):
+                    score = score + 1
+                    correct = correct + 1
+                    gw = random.choice(goodw)
+                    print(gw)
+                    n = random.choice(nums)
+                    n2 = random.choice(nums)
+                    print("What is " + n + (o2) + n2, "?")
+                    a = int(input("Enter: "))
+                elif a != (n,int(o2),n2):
+                    wrong = wrong + 1
+                    bw = random.choice(badw)
+                    print(bw)
+                elif a == 0:
+                    break
+
+        elif d == 2:
+            print(opp)
+            print(opp2)
+            if opp2 == 1:
+                print("How much is ", rn, "plus", rn2)
+                a2 = int(input("Enter: (press 0 to quit)"))
+                if a2 != rn + rn2:
+                    wrong = wrong + 1
+                    bw = random.choice(badw)
+                    print(bw)
+                elif a2 == rn + rn2:
+                    correct = correct + 1
+                    score = score + 1
+                    gw = random.choice(goodw)
+                    print(gw)
+                    rn = random.randint(10,20)
+                    rn2 = random.randint(10,20)
+                    addition(n,n2, goodw, badw,d,rn,rn2, opp,opp2,score)
+                if a2 == 0:
+                    print("Thanks for playing!")
+                    print("Score: ", score)
+                    print("Correct answers: ", correct)
+                    print("Wrong answers given: ", wrong)
+                    break
+            if opp2 == 2: #Subtraction
+                print("How much is ", rn, "minus", rn2)
+                a2 = int(input("Enter: (press 0 to quit)"))
+                if a2 != rn - rn2:
+                    wrong = wrong + 1
+                    bw = random.choice(badw)
+                    print(bw)
+                
+                elif a2 == rn - rn2:
+                    score = score + 1
+                    correct = correct + 1
+                    gw = random.choice(goodw)
+                    print(gw)
+                    
+                    rn = random.randint(10,20)
+                    rn2 = random.randint(10,20)
+                    print("How much is ", rn, "minus", rn2)
+                    a2 = int(input("Enter: "))
+                if a2 == 0:
+                    print("Thanks for playing!")
+                    print("Score: ", score)
+                    print("Correct answers: ", correct)
+                    print("Wrong answers given: ", wrong)
+                    break
+            if opp2 == 3: #Multiplication
+                print("How much is ", rn, "times", rn2)
+                a2 = int(input("Enter: (press 0 to quit)"))
+                if a2 != rn * rn2:
+                    wrong = wrong + 1
+                    bw = random.choice(badw)
+                    print(bw)
+                    
+                elif a2 == rn * rn2:
+                    correct = correct + 1
+                    score = score + 1
+                    gw = random.choice(goodw)
+                    print(gw)
+                    
+                    rn = random.randint(10,20)
+                    rn2 = random.randint(10,20)
+                    print("How much is ", rn, "times", rn2)
+                    a2 = int(input("Enter: "))
+                if a2 == 0:
+                    break
+            if opp2 == 4: #Division
+                print("How much is ", rn, "divided by", rn2)
+                a2 = int(input("Enter: (press 0 to quit)"))
+                if a2 != rn / rn2:
+                    wrong = wrong + 1
+                    bw = random.choice(badw)
+                    print(bw)
+                elif a2 == rn / rn2:
+                    score = score + 1
+                    correct = correct + 1
+                    gw = random.choice(goodw)
+                    print(gw)
+                    rn = random.randint(10,20)
+                    rn2 = random.randint(10,20)
+                    print("How much is ", rn, "divided by", rn2)
+                    a2 = int(input("Enter: "))
+                if a2 == 0:
+                    print("Thanks for playing!")
+                    print("Score: ", score)
+                    print("Correct answers: ", correct)
+                    print("Wrong answers given: ", wrong)
+                    break
+            if opp2 == 5: #Mixed
+                print("What is " + rn + str(o2) + rn2, "?")
+                a2 = int(input("Enter: (press 0 to quit)"))
+                if a2 ==(rn,int(o2),rn2):
+                    score = score + 1
+                    gw = random.choice(goodw)
+                    print(gw)
+                    print("Score: ", score)
+                    rn = random.randint(10,20)
+                    rn2 = random.randint(10,20)
+                    print("What is " + rn + str(o2) + rn2, "?")
+                    a2 = int(input("Enter: "))
+                elif a2 != (rn,int(o2),rn2):
+                    bw = random.choice(badw)
+                    print(bw)
+                if a2 == 0:
+                    break
+
+addition(n,n2, goodw, badw,d,rn,rn2, opp,opp2,o1,o2,score,correct, wrong)
